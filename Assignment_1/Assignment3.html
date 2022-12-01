@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+</html>
+<script>
+    let productsProm = fetch('https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products');
+
+// store the data in a variable
+// try to render it in the DOM
+// title
+// image
+// price
+let arr;
+productsProm
+  .then((response) => {
+    return response.json()
+  })
+  .then((obj) => {
+    // console.log(data)
+    // arr=data
+    display(obj.data)
+  })
+let box=document.querySelector("#box")
+function display(arr){
+  console.log(arr)
+      arr.forEach((e)=>{
+        let div=document.createElement("div")
+        let img=document.createElement("img")
+        img.src=e.image
+        let title=document.createElement("p")
+        title.innerText=e.title
+        let price=document.createElement("h4")
+        price.innerText=e.price
+        div.append(img,price,title)
+        box.append(div)
+    })
+     
+}
+
+
+
+
+
+
+
+</script>

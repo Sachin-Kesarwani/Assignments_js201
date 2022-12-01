@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   
+
+   let arr=[]
+    async function data(resolve,reject){
+        let url="https://jsonplaceholder.typicode.com/posts."
+
+        try{
+          let data= await fetch(url)
+          let fetchedData= await data.json()
+          arr=[...fetchedData]
+        //   filterout(arr)
+       console.log( fetchedData)
+          console.log(arr)
+        }catch(err){
+          console.log(err)
+        }
+    }
+    data()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
